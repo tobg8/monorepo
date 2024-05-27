@@ -1,10 +1,11 @@
 package main
 
 import (
-	_ "embed"
-	"log"
 	"net/http"
 	"os"
+
+	_ "embed"
+	"log"
 
 	"github.com/gorilla/mux"
 	sl "github.com/monorepo/domains/sample_library"
