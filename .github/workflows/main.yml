@@ -31,6 +31,9 @@ jobs:
       - name: Run tests
         run: bazel test //...
 
+      - name: Run ls
+        run: ls
+       
       - name: Check Go format
         run: gofmt -l .
       
