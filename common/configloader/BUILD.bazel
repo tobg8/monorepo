@@ -1,0 +1,26 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "configloader",
+    srcs = ["loader.go"],
+    importpath = "github.com/monorepo/common/configloader",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/secret",
+        "@com_github_spf13_viper//:viper",
+        "@org_uber_go_multierr//:multierr",
+    ],
+)
+
+go_test(
+    name = "configloader_test",
+    srcs = ["loader_test.go"],
+    data = glob(["testdata/**"]),
+    embed = [":configloader"],
+    deps = [
+        "//common/secret",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//mock",
+        "@com_github_stretchr_testify//require",
+    ],
+)
