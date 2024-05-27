@@ -15,7 +15,7 @@ import (
 func YourHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("Received request")
 	log.Print(r)
-	_, err := w.Write([]byte(sl.SampleGoFunction("Akhieelesh")))
+	_, err := w.Write([]byte(sl.SampleGoFunction("Akhieeelesh")))
 	if err != nil {
 		return
 	}
