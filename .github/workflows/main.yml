@@ -38,6 +38,7 @@ jobs:
           chmod +x ./helpers/check_gofmt.sh
           ./helpers/check_gofmt.sh
 
-      - name: Check Golang imports order
-        uses: Jerome1337/goimports-action@v1.0.3
-    
+      - name: Goimports Check
+        uses: DarthBenro008/goimports-check-action@v0.1.0
+        with:
+          root-path: './'
