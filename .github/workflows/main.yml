@@ -35,7 +35,9 @@ jobs:
         run: ls
        
       - name: Check Go format
-        run: gofmt -l .
+        run: ./.github/helpers/check_gofmt.sh
       
       - name: Check imports
-        run: goimports -l .
+        run: |
+          go get golang.org/x/tools/cmd/goimports
+          goimports -l .
