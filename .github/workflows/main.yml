@@ -17,8 +17,10 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '1.21'
+        env:
+          GO111MODULE: 'on'
       
-      - name: Install dependencies with Basel
+      - name: Install dependencies with Bazel
         run: |
           sudo apt-get update && sudo apt-get install -y curl
           curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel.gpg
@@ -30,17 +32,12 @@ jobs:
 
       - name: Run tests
         run: bazel test //...
-
-      - name: Run ls
-        run: ls
-
-      - name: Grant execute permissions to check_gofmt.sh
-        run: chmod +x ./helpers/check_gofmt.sh
        
       - name: Check Go format
         run: ./helpers/check_gofmt.sh
-      
+
+      - name: Add goimports to PATH
+        run: echo "::add-path::$GOPATH/bin"
+
       - name: Check imports
-        run: |
-          go get golang.org/x/tools/cmd/goimports
-          goimports -l .
+        run: goimports -l .
