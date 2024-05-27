@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	// ErrFileRead is the error returned when a file related error happens.
+	// ErrFileRead is the error returned when a file related error happens. aezaezae
 	ErrFileRead = errors.New("file error")
 
 	// ErrRequiredSecretGetter is the error returned when a secret getter is required to fetch config value.
