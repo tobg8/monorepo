@@ -6,7 +6,7 @@ func TestSampleFunction(t *testing.T) {
 	expected := "Hello, Akhilesh!"
 	actual := SampleGoFunction("Akhilesh")
 
-	if actual!= expected {
+	if actual != expected {
 		t.Errorf("Expected %s, got %s", expected, actual)
 	}
 }
