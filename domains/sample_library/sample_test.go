@@ -4,7 +4,7 @@ import "testing"
 
 func TestSampleFunction(t *testing.T) {
 	expected := "Hello, Akehilesh!"
-	actual := SampleGoFunction("Akhilesh")
+	actual := SampleGoFunction("Akehilesh")
 
 	if actual != expected {
 		t.Errorf("Expected %s, got %s", expected, actual)
