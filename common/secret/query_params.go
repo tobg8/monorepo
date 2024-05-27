@@ -12,7 +12,7 @@ const urlReplacement = "xxxxx"
 
 // QueryParams provides methods to hide values of secret query string params,
 // e.g. api keys. To avoid leak to client, log and monitoring backend.
-//
+// wow
 // Also see httputils.WithSecretQueryParams.
 //
 // Note: When possible, prefer http header over url query string for sensitive
