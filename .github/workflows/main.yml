@@ -1,0 +1,38 @@
+name: Quality
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  premerge:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.21'
+      
+      - name: Install dependencies with Basel
+        run: |
+          sudo apt-get update && sudo apt-get install -y curl
+          curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel.gpg
+          sudo mv bazel.gpg /etc/apt/trusted.gpg.d/
+          echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+          sudo apt-get update && sudo apt-get install -y bazel
+          bazel version
+          bazel build //...
+
+      - name: Run tests
+        run: bazel test //...
+
+      - name: Check Go format
+        run: gofmt -l .
+      
+      - name: Check imports
+        run: goimports -l .
