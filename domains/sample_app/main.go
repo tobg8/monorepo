@@ -13,7 +13,7 @@ import (
 func YourHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("Received request")
 	log.Print(r)
-	_, err := w.Write([]byte(sl.SampleGoFunction("Akhielesh")))
+	_, err := w.Write([]byte(sl.SampleGoFunction("Akhieelesh")))
 	if err != nil {
 		return
 	}
