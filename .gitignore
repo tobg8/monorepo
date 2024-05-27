@@ -1,0 +1,9 @@
+/bazel-bin
+/bazel-Monorepo
+/bazel-monorepo
+/bazel-out
+/bazel-testlogs
+/vendor
+.idea
+.ijwb
+
