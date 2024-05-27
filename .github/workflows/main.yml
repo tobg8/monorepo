@@ -32,9 +32,11 @@ jobs:
 
       - name: Run tests
         run: bazel test //...
-       
+
       - name: Check Go format
-        run: ./helpers/check_gofmt.sh
+        run: |
+          chmod +x ./helpers/check_gofmt.sh
+          ./helpers/check_gofmt.sh
 
       - name: Add goimports to PATH
         run: echo "::add-path::$GOPATH/bin"
