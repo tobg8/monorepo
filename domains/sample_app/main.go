@@ -1,13 +1,15 @@
 package main
 
 import (
-	_ "embed"
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/gorilla/mux"
 	sl "github.com/monorepo/domains/sample_library"
+
+	"net/http"
+
+	_ "embed"
 )
 
 func YourHandler(w http.ResponseWriter, r *http.Request) {
