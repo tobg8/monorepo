@@ -38,8 +38,6 @@ jobs:
           chmod +x ./helpers/check_gofmt.sh
           ./helpers/check_gofmt.sh
 
-      - name: Add goimports to PATH
-        run: echo "::add-path::$GOPATH/bin"
-
-      - name: Check imports
-        run: goimports -l .
+      - name: Check Golang imports order
+        uses: Jerome1337/goimports-action@v1.0.3
+    
