@@ -35,8 +35,8 @@ jobs:
 
       - name: Check Go format
         run: |
-          chmod +x ./helpers/check_gofmt.sh
-          ./helpers/check_gofmt.sh
+          chmod +x ./.github/helpers/check_gofmt.sh
+          ./.github/helpers/check_gofmt.sh
 
       - name: Goimports Check
         uses: DarthBenro008/goimports-check-action@v0.1.0
