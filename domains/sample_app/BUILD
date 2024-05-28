@@ -11,8 +11,5 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/monorepo/domains/sample_app",
     visibility = ["//visibility:private"],
-    deps = [
-        "//domains/sample_library",
-        "@com_github_gorilla_mux//:mux",
-    ],
+    deps = ["@com_github_gorilla_mux//:mux"],
 )
