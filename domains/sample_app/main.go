@@ -6,18 +6,12 @@ import (
 	"net/http"
 	"os"
 
-	sl "github.com/monorepo/domains/sample_library"
-
 	"github.com/gorilla/mux"
 )
 
 func YourHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("Received request")
 	log.Print(r)
-	_, err := w.Write([]byte(sl.SampleGoFunction("Akhilesh")))
-	if err != nil {
-		return
-	}
 }
 
 func getPort() string {
