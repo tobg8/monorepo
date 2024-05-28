@@ -1,6 +1,7 @@
 package main
 
 import (
+	sl "github.com/monorepo/domains/sample_library"
 	"net/http"
 	"os"
 
@@ -8,7 +9,6 @@ import (
 	"log"
 
 	"github.com/gorilla/mux"
-	sl "github.com/monorepo/domains/sample_library"
 )
 
 func YourHandler(w http.ResponseWriter, r *http.Request) {
