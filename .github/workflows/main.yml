@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - main
+    types: [closed]
 
 jobs:
   premerge:
@@ -53,5 +54,6 @@ jobs:
   deploy_qa3:
     needs: premerge
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
-      - uses: ./.github/workflows/deploy_qa3.yml#on_merge
+      - uses: ./.github/workflows/deploy_qa3.yml
