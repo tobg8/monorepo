@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "logging",
+    srcs = [
+        "config.go",
+        "func.go",
+        "level.go",
+        "logger.go",
+        "noop.go",
+    ],
+    importpath = "github.com/monorepo/common/logging",
+    visibility = ["//visibility:public"],
+    deps = ["//common/configloader"],
+)
+
+go_test(
+    name = "logging_test",
+    srcs = ["integration_test.go"],
+    deps = [
+        ":logging",
+        "//common/logging/logrus",
+        "//common/logging/slog",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//require",
+    ],
+)

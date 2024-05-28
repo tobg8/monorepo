@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "loggingtest",
+    srcs = [
+        "mock.go",
+        "recorder.go",
+        "testing.go",
+    ],
+    importpath = "github.com/monorepo/common/logging/loggingtest",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/logging",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//mock",
+        "@com_github_stretchr_testify//require",
+    ],
+)

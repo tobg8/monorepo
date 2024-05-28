@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "glog",
+    srcs = ["glog.go"],
+    importpath = "github.com/monorepo/common/logging/glog",
+    visibility = ["//visibility:public"],
+    deps = ["//common/logging"],
+)

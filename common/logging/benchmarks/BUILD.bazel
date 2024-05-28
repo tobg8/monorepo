@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "benchmarks",
+    srcs = ["flags.go"],
+    importpath = "github.com/monorepo/common/logging/benchmarks",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "benchmarks_test",
+    srcs = ["performances_test.go"],
+    embed = [":benchmarks"],
+    deps = [
+        "//common/logging",
+        "//common/logging/logrus",
+        "//common/logging/slog",
+        "@com_github_stretchr_testify//require",
+    ],
+)
