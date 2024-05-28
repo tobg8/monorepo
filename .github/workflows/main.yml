@@ -49,3 +49,9 @@ jobs:
 
       - name: Run tests
         run: bazel test //...
+
+  deploy_qa3:
+    needs: premerge
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/deploy_qa3.yml#on_merge
