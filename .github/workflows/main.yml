@@ -30,15 +30,16 @@ jobs:
           bazel version
           bazel build //...
 
-      - name: Run tests
-        run: bazel test //...
-
       - name: Check Go format
         run: |
           chmod +x ./.github/helpers/check_gofmt.sh
           ./.github/helpers/check_gofmt.sh
 
-      - name: Goimports Check
-        uses: DarthBenro008/goimports-check-action@v0.1.0
-        with:
-          root-path: './'
+      - name: Check Go Imports
+        run: |
+          go install golang.org/x/tools/cmd/goimports@latest 
+          chmod +x ./.github/helpers/check_goimports.sh
+          ./.github/helpers/check_goimports.sh
+
+      - name: Run tests
+        run: bazel test //...
