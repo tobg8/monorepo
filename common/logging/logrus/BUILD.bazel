@@ -1,0 +1,28 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "logrus",
+    srcs = [
+        "hook_app_name.go",
+        "hook_caller.go",
+        "hook_version.go",
+        "logrus.go",
+    ],
+    importpath = "github.com/monorepo/common/logging/logrus",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/logging",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)
+
+go_test(
+    name = "logrus_test",
+    srcs = ["logrus_test.go"],
+    embed = [":logrus"],
+    deps = [
+        "//common/logging",
+        "//common/logging/loggingtest",
+        "@com_github_stretchr_testify//require",
+    ],
+)
