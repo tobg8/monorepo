@@ -1,9 +1,10 @@
 package main
 
 import (
-	sl "github.com/monorepo/domains/sample_library"
 	"net/http"
 	"os"
+
+	sl "github.com/monorepo/domains/sample_library"
 
 	_ "embed"
 	"log"
