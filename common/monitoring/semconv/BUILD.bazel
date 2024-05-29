@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "semconv",
+    srcs = [
+        "attribute_group.go",
+        "metric.go",
+        "resource.go",
+        "schema.go",
+    ],
+    importpath = "github.com/monorepo/common/monitoring/semconv",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@io_opentelemetry_go_otel//attribute",
+        "@io_opentelemetry_go_otel//semconv/v1.24.0:v1_24_0",
+    ],
+)

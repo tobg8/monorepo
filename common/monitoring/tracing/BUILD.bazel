@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "tracing",
+    srcs = [
+        "global.go",
+        "noop.go",
+        "tag.go",
+        "tracing.go",
+    ],
+    importpath = "github.com/monorepo/common/monitoring/tracing",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/monitoring/tracing/ddtracing",
+        "@io_opentelemetry_go_otel//:otel",
+        "@io_opentelemetry_go_otel_trace//:trace",
+        "@io_opentelemetry_go_otel_trace//noop",
+    ],
+)
