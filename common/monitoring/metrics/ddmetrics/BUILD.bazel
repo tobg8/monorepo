@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "ddmetrics",
+    srcs = [
+        "client.go",
+        "config.go",
+    ],
+    importpath = "github.com/monorepo/common/monitoring/metrics/ddmetrics",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/logging",
+        "//common/monitoring/internal/runtime",
+        "//common/monitoring/metrics",
+        "@com_github_datadog_datadog_go_v5//statsd",
+    ],
+)

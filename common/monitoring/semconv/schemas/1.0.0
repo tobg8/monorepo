@@ -1,0 +1,6 @@
+file_format: "1.1.0"
+schema_url: "https://github.com/tobg8/monorepo/tree/main/common/monitoring/semconv/shemas/1.0.0"
+versions:
+  1.0.0:
+    # First version of this schema family.
+    # Follow the Semantic Conventions 1.24.0: https://opentelemetry.io/schemas/1.24.0

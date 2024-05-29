@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "profiling",
+    srcs = [
+        "config.go",
+        "service.go",
+    ],
+    importpath = "github.com/monorepo/common/monitoring/profiling",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/logging",
+        "//common/monitoring/internal/runtime",
+        "@in_gopkg_datadog_dd_trace_go_v1//profiler",
+    ],
+)
