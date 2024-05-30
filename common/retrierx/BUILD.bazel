@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "retrierx",
+    srcs = ["retrier.go"],
+    importpath = "github.com/monorepo/common/retrierx",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/logging",
+        "@com_github_eapache_go_resiliency//retrier",
+    ],
+)
+
+go_test(
+    name = "retrierx_test",
+    srcs = ["retrier_test.go"],
+    embed = [":retrierx"],
+    deps = [
+        "@com_github_eapache_go_resiliency//retrier",
+        "@com_github_stretchr_testify//assert",
+    ],
+)

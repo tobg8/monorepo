@@ -4,6 +4,7 @@ go 1.21
 
 require (
 	github.com/DataDog/datadog-go/v5 v5.5.0
+	github.com/eapache/go-resiliency v1.4.0
 	github.com/gorilla/mux v1.8.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/viper v1.18.2
