@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "graceful",
+    srcs = ["context.go"],
+    importpath = "github.com/monorepo/common/graceful",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "graceful_test",
+    srcs = ["context_test.go"],
+    embed = [":graceful"],
+    deps = ["@com_github_stretchr_testify//assert"],
+)
