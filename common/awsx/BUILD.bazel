@@ -1,0 +1,38 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "awsx",
+    srcs = [
+        "config.go",
+        "doc.go",
+        "logger.go",
+    ],
+    importpath = "github.com/monorepo/common/awsx",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/logging",
+        "@com_github_aws_aws_sdk_go_v2//aws",
+        "@com_github_aws_aws_sdk_go_v2_config//:config",
+        "@com_github_aws_aws_sdk_go_v2_credentials//:credentials",
+        "@com_github_aws_aws_sdk_go_v2_credentials//stscreds",
+        "@com_github_aws_aws_sdk_go_v2_service_sts//:sts",
+        "@com_github_aws_smithy_go//logging",
+        "@in_gopkg_datadog_dd_trace_go_v1//contrib/aws/aws-sdk-go-v2/aws",
+    ],
+)
+
+go_test(
+    name = "awsx_test",
+    srcs = [
+        "config_test.go",
+        "logger_test.go",
+    ],
+    embed = [":awsx"],
+    deps = [
+        "//common/logging/loggingtest",
+        "@com_github_aws_smithy_go//logging",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//mock",
+        "@com_github_stretchr_testify//require",
+    ],
+)
