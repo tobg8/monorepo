@@ -8,6 +8,12 @@ def go_dependencies():
         version = "v0.4.1",
     )
     go_repository(
+        name = "com_github_bmizerany_assert",
+        importpath = "github.com/bmizerany/assert",
+        sum = "h1:DDGfHa7BWjL4YnC6+E63dPcxHo2sUxDIu8g3QgEJdRY=",
+        version = "v0.0.0-20160611221934-b7ed37b82869",
+    )
+    go_repository(
         name = "com_github_coreos_go_semver",
         importpath = "github.com/coreos/go-semver",
         sum = "h1:wkHLiw0WNATZnSG7epLsujiMCgPAc9xhjJ4tgnAxmfM=",
@@ -24,6 +30,12 @@ def go_dependencies():
         importpath = "github.com/davecgh/go-spew",
         sum = "h1:U9qPSI2PIWSS1VwoXQT9A3Wy9MM3WgvqSxFWenqJduM=",
         version = "v1.1.2-0.20180830191138-d8f796af33cc",
+    )
+    go_repository(
+        name = "com_github_f2prateek_train",
+        importpath = "github.com/f2prateek/train",
+        sum = "h1:6jWlYmapog3DrsJonS8xsILkeI85CT+vBe/KSatwoLk=",
+        version = "v0.0.0-20170409194429-523ebcaf2f00",
     )
     go_repository(
         name = "com_github_fatih_color",
@@ -44,10 +56,22 @@ def go_dependencies():
         version = "v1.7.0",
     )
     go_repository(
+        name = "com_github_go_playground_assert_v2",
+        importpath = "github.com/go-playground/assert/v2",
+        sum = "h1:JvknZsQTYeFEAhQwI4qEt9cyV5ONwRHC+lYKSsYSR8s=",
+        version = "v2.2.0",
+    )
+    go_repository(
         name = "com_github_gogo_protobuf",
         importpath = "github.com/gogo/protobuf",
         sum = "h1:Ov1cvc58UF3b5XjBnZv7+opcTcQFZebYjWzi34vdm4Q=",
         version = "v1.3.2",
+    )
+    go_repository(
+        name = "com_github_gohttp_response",
+        importpath = "github.com/gohttp/response",
+        sum = "h1:rFpsxKecFofQ5K6oYG9Wmv4eH27xLehQcmBaOYhw9wM=",
+        version = "v1.2.0",
     )
     go_repository(
         name = "com_github_golang_groupcache",
@@ -146,6 +170,12 @@ def go_dependencies():
         version = "v0.10.1",
     )
     go_repository(
+        name = "com_github_jmespath_go_jmespath_internal_testify",
+        importpath = "github.com/jmespath/go-jmespath/internal/testify",
+        sum = "h1:shLQSRRSCCPj3f2gpwzGwWFoC7ycTf1rcQZHOlsJ6N8=",
+        version = "v1.5.1",
+    )
+    go_repository(
         name = "com_github_json_iterator_go",
         importpath = "github.com/json-iterator/go",
         sum = "h1:PV8peI4a0ysnczrg+LtxykD8LfKY9ML6u2jnxaEnrnM=",
@@ -156,6 +186,12 @@ def go_dependencies():
         importpath = "github.com/klauspost/compress",
         sum = "h1:NE3C767s2ak2bweCZo3+rdP4U/HoyVXLv/X9f2gPS5g=",
         version = "v1.17.1",
+    )
+    go_repository(
+        name = "com_github_knz_go_libedit",
+        importpath = "github.com/knz/go-libedit",
+        sum = "h1:0pHpWtx9vcvC0xGZqEQlQdfSQs7WRlAjuPvk3fOZDCo=",
+        version = "v1.10.1",
     )
     go_repository(
         name = "com_github_kr_fs",
@@ -368,6 +404,12 @@ def go_dependencies():
         version = "v1.35.1",
     )
     go_repository(
+        name = "com_nullprogram_x_optparse",
+        importpath = "nullprogram.com/x/optparse",
+        sum = "h1:xGFgVi5ZaWOnYdac2foDT3vg0ZZC9ErXFV57mr4OHrI=",
+        version = "v1.0.0",
+    )
+    go_repository(
         name = "in_gopkg_check_v1",
         importpath = "gopkg.in/check.v1",
         sum = "h1:Hei/4ADfdWqJk1ZMxUNpqntNwaWcugrBjAiHlqqRiVk=",
@@ -414,6 +456,12 @@ def go_dependencies():
         importpath = "go.opencensus.io",
         sum = "h1:y73uSU6J157QMP2kn2r30vwW1A2W2WFwSCGnAVxeaD0=",
         version = "v0.24.0",
+    )
+    go_repository(
+        name = "io_rsc_pdf",
+        importpath = "rsc.io/pdf",
+        sum = "h1:k1MczvYDUvJBe93bYd7wrZLLUEcLZAuF824/I4e5Xr4=",
+        version = "v0.1.1",
     )
     go_repository(
         name = "org_golang_google_api",
