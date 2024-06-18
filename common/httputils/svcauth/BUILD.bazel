@@ -1,0 +1,29 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "svcauth",
+    srcs = [
+        "svcauth.go",
+        "token_getter.go",
+    ],
+    importpath = "github.com/monorepo/common/httputils/svcauth",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/configloader",
+        "//common/httputils/interceptors",
+        "//common/secret",
+        "@com_github_f2prateek_train//:train",
+        "@org_golang_x_net//context/ctxhttp",
+    ],
+)
+
+go_test(
+    name = "svcauth_test",
+    srcs = ["svcauth_test.go"],
+    embed = [":svcauth"],
+    deps = [
+        "@com_github_f2prateek_train//:train",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//require",
+    ],
+)

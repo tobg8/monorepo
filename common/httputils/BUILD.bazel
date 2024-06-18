@@ -1,0 +1,44 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "httputils",
+    srcs = [
+        "client.go",
+        "config.go",
+        "mock.go",
+        "polaris_headers.go",
+        "reverse_proxy.go",
+    ],
+    importpath = "github.com/monorepo/common/httputils",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/httputils/interceptors",
+        "//common/httputils/svcauth",
+        "//common/monitoring/metrics",
+        "//common/secret",
+        "@com_github_f2prateek_train//:train",
+        "@com_github_pmezard_go_difflib//difflib",
+        "@com_github_stretchr_testify//mock",
+    ],
+)
+
+go_test(
+    name = "httputils_test",
+    srcs = [
+        "client_example_test.go",
+        "client_test.go",
+        "mock_example_test.go",
+        "mock_test.go",
+        "polaris_headers_test.go",
+        "reverse_proxy_test.go",
+    ],
+    embed = [":httputils"],
+    deps = [
+        "//common/httputils/interceptors",
+        "//common/monitoring/metrics",
+        "@com_github_f2prateek_train//:train",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//mock",
+        "@com_github_stretchr_testify//require",
+    ],
+)
