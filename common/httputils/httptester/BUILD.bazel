@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "httptester",
+    srcs = ["http_tester.go"],
+    importpath = "github.com/monorepo/common/httputils/httptester",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "httptester_test",
+    srcs = ["http_tester_test.go"],
+    embed = [":httptester"],
+    deps = [
+        "@com_github_gin_gonic_gin//:gin",
+        "@com_github_stretchr_testify//assert",
+    ],
+)
