@@ -2,10 +2,22 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "interceptors",
-    srcs = ["tracing.go"],
+    srcs = [
+        "authorization.go",
+        "interceptors.go",
+        "limiter.go",
+        "monitoring.go",
+        "monitoring_route_matcher.go",
+        "secrets.go",
+        "tracing.go",
+        "user_agent.go",
+    ],
     importpath = "github.com/monorepo/common/httputils/interceptors",
     visibility = ["//visibility:public"],
     deps = [
+        "//common/contextkeys",
+        "//common/monitoring",
+        "//common/monitoring/metrics",
         "//common/secret",
         "@com_github_f2prateek_train//:train",
         "@in_gopkg_datadog_dd_trace_go_v1//ddtrace/ext",
@@ -15,10 +27,19 @@ go_library(
 
 go_test(
     name = "interceptors_test",
-    srcs = ["tracing_test.go"],
+    srcs = [
+        "authorization_test.go",
+        "limiter_test.go",
+        "monitoring_route_matcher_test.go",
+        "secrets_test.go",
+        "tracing_test.go",
+        "user_agent_test.go",
+    ],
     embed = [":interceptors"],
     deps = [
+        "//common/contextkeys",
         "//common/pointer",
+        "//common/secret",
         "@com_github_f2prateek_train//:train",
         "@com_github_stretchr_testify//assert",
         "@com_github_stretchr_testify//require",
