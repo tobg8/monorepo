@@ -1,0 +1,25 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "pagination",
+    srcs = [
+        "const.go",
+        "mock.go",
+        "model.go",
+        "pagination.go",
+    ],
+    importpath = "github.com/monorepo/common/pagination",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_gin_gonic_gin//:gin"],
+)
+
+go_test(
+    name = "pagination_test",
+    srcs = ["pagination_test.go"],
+    embed = [":pagination"],
+    deps = [
+        "@com_github_gin_gonic_gin//:gin",
+        "@com_github_stretchr_testify//assert",
+        "@com_github_stretchr_testify//require",
+    ],
+)
