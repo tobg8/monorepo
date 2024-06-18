@@ -28,6 +28,7 @@ func main() {
 	// Routes consist of a path and a handler function.
 	r.HandleFunc("/", YourHandler)
 	// Bind to a port and pass our router in
+
 	port := getPort()
 	log.Println("Going to listen on port: " + port)
 	log.Fatal(http.ListenAndServe(":"+port, r))
