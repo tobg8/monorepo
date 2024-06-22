@@ -2,4 +2,4 @@
 %project=bearwise
 %uri=https://github.com/tobg8/monorepo/sqitch
 
-create_schema_001 2024-06-22T16:05:02Z postgres <tobg@DESKTOP-B3PELI2> # add schema to bearwise db
+create_schema_001 2024-06-22T19:38:31Z postgres <tobg@DESKTOP-B3PELI2> # add schema to bearwise db
