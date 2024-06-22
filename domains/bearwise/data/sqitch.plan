@@ -3,3 +3,4 @@
 %uri=https://github.com/tobg8/monorepo/sqitch
 
 create_schema_001 2024-06-22T19:38:31Z postgres <tobg@DESKTOP-B3PELI2> # add schema to bearwise db
+insert_families_002 2024-06-22T20:19:37Z postgres <tobg@DESKTOP-B3PELI2> # insert families entities
