@@ -62,7 +62,12 @@ CREATE TABLE types (
 CREATE TABLE indicators (
     id SERIAL PRIMARY KEY,
     symbol VARCHAR NOT NULL,
-    description TEXT NOT NULL,
+    description_fr TEXT NOT NULL,
+    description_en TEXT NOT NULL,
+    description_es TEXT,
+    description_it TEXT,
+    description_nl TEXT,
+    description_de TEXT,
     label_fr VARCHAR NOT NULL,
     label_en VARCHAR,
     label_es VARCHAR,
