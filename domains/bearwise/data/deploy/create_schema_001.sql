@@ -4,35 +4,54 @@ BEGIN;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    username VARCHAR NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL,
+    updated_at TIMESTAMPTZ NOT NULL
 );
 
 CREATE TABLE providers (
     id SERIAL PRIMARY KEY,
-    value VARCHAR(255) NOT NULL
+    name VARCHAR NOT NULL
 );
 
 CREATE TABLE currencies (
     id SERIAL PRIMARY KEY,
-    value VARCHAR(255) NOT NULL,
-    provider_id INTEGER NOT NULL REFERENCES providers(id)
+    pair VARCHAR NOT NULL,
+    provider_id INTEGER NOT NULL,
+    FOREIGN KEY (provider_id) REFERENCES providers(id)
 );
 
 CREATE TYPE bot_status AS ENUM ('active', 'inactive', 'bug');
 
 CREATE TABLE bots (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
+    label VARCHAR NOT NULL,
     status bot_status NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    user_id INTEGER NOT NULL REFERENCES users(id),
-    currency_id INTEGER NOT NULL REFERENCES currencies(id)
+    created_at TIMESTAMPTZ NOT NULL,
+    updated_at TIMESTAMPTZ NOT NULL,
+    user_id INTEGER NOT NULL,
+    currency_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (currency_id) REFERENCES currencies(id)
 );
 
-CREATE TABLE intervals (
+CREATE TABLE parameters (
     id SERIAL PRIMARY KEY,
-    value VARCHAR(255) NOT NULL
+    optional BOOLEAN NOT NULL,
+    type_id INTEGER NOT NULL,
+    label_fr VARCHAR NOT NULL,
+    label_en VARCHAR,
+    label_es VARCHAR,
+    label_it VARCHAR,
+    label_nl VARCHAR,
+    label_de VARCHAR,
+    description_fr TEXT NOT NULL,
+    description_en TEXT,
+    description_es TEXT,
+    description_it TEXT,
+    description_nl TEXT,
+    description_de TEXT,
+    default_value VARCHAR
 );
 
 CREATE TABLE types (
@@ -42,44 +61,65 @@ CREATE TABLE types (
 
 CREATE TABLE indicators (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    symbol VARCHAR(255) NOT NULL,
-    information TEXT,
-    type_id INTEGER NOT NULL REFERENCES types(id)
+    symbol VARCHAR NOT NULL,
+    description TEXT NOT NULL,
+    label_fr VARCHAR NOT NULL,
+    label_en VARCHAR,
+    label_es VARCHAR,
+    label_it VARCHAR,
+    label_nl VARCHAR,
+    label_de VARCHAR,
+    type_id INTEGER NOT NULL,
+    FOREIGN KEY (type_id) REFERENCES types(id)
 );
 
-CREATE TABLE parameters (
+CREATE TABLE parameters_config (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    optional BOOLEAN NOT NULL,
-    type VARCHAR(255) NOT NULL,
-    description VARCHAR(255),
-    "default" FLOAT
+    config JSON NOT NULL
 );
 
 CREATE TABLE parameters_indicators (
     id SERIAL PRIMARY KEY,
-    parameter_id INTEGER NOT NULL REFERENCES parameters(id),
-    indicator_id INTEGER NOT NULL REFERENCES indicators(id)
+    parameter_id INTEGER NOT NULL,
+    indicator_id INTEGER NOT NULL,
+    FOREIGN KEY (parameter_id) REFERENCES parameters(id),
+    FOREIGN KEY (indicator_id) REFERENCES indicators(id)
 );
 
 CREATE TABLE families (
     id SERIAL PRIMARY KEY,
-    value VARCHAR(255) NOT NULL
+    label_fr VARCHAR NOT NULL,
+    label_en VARCHAR,
+    label_es VARCHAR,
+    label_it VARCHAR,
+    label_nl VARCHAR,
+    label_de VARCHAR
 );
 
 CREATE TABLE indicators_families (
     id SERIAL PRIMARY KEY,
-    indicator_id INTEGER NOT NULL REFERENCES indicators(id),
-    family_id INTEGER NOT NULL REFERENCES families(id)
+    indicator_id INTEGER NOT NULL,
+    family_id INTEGER NOT NULL,
+    FOREIGN KEY (indicator_id) REFERENCES indicators(id),
+    FOREIGN KEY (family_id) REFERENCES families(id)
+);
+
+CREATE TABLE intervals (
+    id SERIAL PRIMARY KEY,
+    value VARCHAR NOT NULL
 );
 
 CREATE TABLE alerts (
     id SERIAL PRIMARY KEY,
     config JSON NOT NULL,
-    bot_id INTEGER NOT NULL REFERENCES bots(id),
-    indicator_id INTEGER NOT NULL REFERENCES indicators(id),
-    interval_id INTEGER NOT NULL REFERENCES intervals(id)
+    bot_id INTEGER NOT NULL,
+    indicator_id INTEGER NOT NULL,
+    parameters_config_id INTEGER NOT NULL,
+    interval_id INTEGER NOT NULL,
+    FOREIGN KEY (bot_id) REFERENCES bots(id),
+    FOREIGN KEY (indicator_id) REFERENCES indicators(id),
+    FOREIGN KEY (parameters_config_id) REFERENCES parameters_config(id),
+    FOREIGN KEY (interval_id) REFERENCES intervals(id)
 );
 
 COMMIT;

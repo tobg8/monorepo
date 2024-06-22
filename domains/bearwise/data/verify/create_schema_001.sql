@@ -35,14 +35,8 @@ SELECT EXISTS (
 SELECT EXISTS (
     SELECT 1
     FROM information_schema.tables
-    WHERE table_name = 'intervals'
-) AS intervals_exist;
-
-SELECT EXISTS (
-    SELECT 1
-    FROM information_schema.tables
-    WHERE table_name = 'types'
-) AS types_exist;
+    WHERE table_name = 'parameters'
+) AS parameters_exist;
 
 SELECT EXISTS (
     SELECT 1
@@ -53,8 +47,20 @@ SELECT EXISTS (
 SELECT EXISTS (
     SELECT 1
     FROM information_schema.tables
-    WHERE table_name = 'parameters'
-) AS parameters_exist;
+    WHERE table_name = 'alerts'
+) AS alerts_exist;
+
+SELECT EXISTS (
+    SELECT 1
+    FROM information_schema.tables
+    WHERE table_name = 'intervals'
+) AS intervals_exist;
+
+SELECT EXISTS (
+    SELECT 1
+    FROM information_schema.tables
+    WHERE table_name = 'parameters_config'
+) AS parameters_config_exist;
 
 SELECT EXISTS (
     SELECT 1
@@ -65,19 +71,19 @@ SELECT EXISTS (
 SELECT EXISTS (
     SELECT 1
     FROM information_schema.tables
-    WHERE table_name = 'families'
-) AS families_exist;
-
-SELECT EXISTS (
-    SELECT 1
-    FROM information_schema.tables
     WHERE table_name = 'indicators_families'
 ) AS indicators_families_exist;
 
 SELECT EXISTS (
     SELECT 1
     FROM information_schema.tables
-    WHERE table_name = 'alerts'
-) AS alerts_exist;
+    WHERE table_name = 'families'
+) AS families_exist;
 
-ROLLBACK;
+SELECT EXISTS (
+    SELECT 1
+    FROM information_schema.tables
+    WHERE table_name = 'types'
+) AS types_exist;
+
+COMMIT;
