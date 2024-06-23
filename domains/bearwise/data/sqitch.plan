@@ -2,9 +2,9 @@
 %project=bearwise
 %uri=https://github.com/tobg8/monorepo/sqitch
 
-create_schema_001 2024-06-22T19:38:31Z postgres <tobg@DESKTOP-B3PELI2> # add schema to bearwise db
-insert_families_002 2024-06-22T20:19:37Z postgres <tobg@DESKTOP-B3PELI2> # insert families entities
-insert_types_003 2024-06-23T18:22:30Z postgres <tobg@DESKTOP-B3PELI2> # add 3 types
-insert_indicators_004 2024-06-23T18:39:15Z postgres <tobg@DESKTOP-B3PELI2> # insert few indicators
-insert_indicators_families_005 2024-06-23T19:14:40Z postgres <tobg@DESKTOP-B3PELI2> # link indicators to families
-insert_intervals_006 2024-06-23T20:49:41Z postgres <tobg@DESKTOP-B3PELI2> # inserts intervals
+s001_create_schema 2024-06-22T19:38:31Z postgres <tobg@DESKTOP-B3PELI2> # add schema to bearwise db
+s002_insert_families 2024-06-22T20:19:37Z postgres <tobg@DESKTOP-B3PELI2> # insert families entities
+s003_insert_types 2024-06-23T18:22:30Z postgres <tobg@DESKTOP-B3PELI2> # add 3 types
+s004_insert_indicators 2024-06-23T18:39:15Z postgres <tobg@DESKTOP-B3PELI2> # insert few indicators
+s005_insert_indicators_families 2024-06-23T19:14:40Z postgres <tobg@DESKTOP-B3PELI2> # link indicators to families
+s006_insert_intervals 2024-06-23T20:49:41Z postgres <tobg@DESKTOP-B3PELI2> # inserts intervals
