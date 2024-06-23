@@ -10,6 +10,7 @@ DO $$
         bot_status_exist BOOLEAN;
         bots_exist BOOLEAN;
         parameters_exist BOOLEAN;
+        parameters_options_exist BOOLEAN;
         indicators_exist BOOLEAN;
         alerts_exist BOOLEAN;
         intervals_exist BOOLEAN;
@@ -55,6 +56,12 @@ DO $$
             FROM information_schema.tables
             WHERE table_name = 'parameters'
         ) INTO parameters_exist;
+
+        SELECT EXISTS (
+            SELECT 1
+            FROM information_schema.tables
+            WHERE table_name = 'parameters_options'
+        ) INTO parameters_options_exist;
 
         SELECT EXISTS (
             SELECT 1
@@ -111,6 +118,7 @@ DO $$
         ASSERT bot_status_exist = true, 'Type bot_status does not exist';
         ASSERT bots_exist = true, 'Table bots does not exist';
         ASSERT parameters_exist = true, 'Table parameters does not exist';
+        ASSERT parameters_options_exist = true, 'Table parameters_options does not exist';
         ASSERT indicators_exist = true, 'Table indicators does not exist';
         ASSERT alerts_exist = true, 'Table alerts does not exist';
         ASSERT intervals_exist = true, 'Table intervals does not exist';
