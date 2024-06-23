@@ -13,6 +13,8 @@ Ensure scripts are executable:
 Make sure Docker is installed locally. Confirm by running docker ps -a.
 Then execute ./setup_local_pg_docker.sh to set up the local PostgreSQL database.
 
+(Make sure you stop postgresql instance on your machine, `service postgresql stop`, we use 5432 locally too)
+
 ## Usage Instructions
 Before using Sqitch, configure database URIs in .zshrc or .bashrc; contact an administrator for these details.
 
