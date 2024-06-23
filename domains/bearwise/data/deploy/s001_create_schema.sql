@@ -44,6 +44,13 @@ CREATE TABLE parameters (
     default_value VARCHAR
 );
 
+CREATE TABLE parameters_options (
+    id SERIAL PRIMARY KEY,
+    option VARCHAR NOT NULL,
+    parameter_id INTEGER NOT NULL,
+    FOREIGN KEY (parameter_id) REFERENCES parameters(id)
+);
+
 CREATE TABLE types (
     id SERIAL PRIMARY KEY,
     label VARCHAR,

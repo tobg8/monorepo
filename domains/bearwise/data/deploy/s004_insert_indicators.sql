@@ -25,8 +25,7 @@ INSERT INTO indicators (symbol, description, label, type_id) VALUES (
 INSERT INTO indicators (symbol, description, label, type_id) VALUES (
     'cci',
 
-    'Developed by Donald Lambert, the Commodity Channel Index​ (CCI) is a momentum-based oscillator used to help determine when an asset is reaching overbought or oversold conditions.' ||
-    'NOTE: This indicator uses the Typical Price as the source of calculation ((hlc3 = High + Low + Close) / 3). Trading View uses close as the default source, and a period of 14. Set the tp parameter to close to match Trading View.',
+    'Developed by Donald Lambert, the Commodity Channel Index​ (CCI) is a momentum-based oscillator used to help determine when an asset is reaching overbought or oversold conditions.',
 
     'commodity channel index',
     (SELECT id FROM types WHERE label = 'single')
