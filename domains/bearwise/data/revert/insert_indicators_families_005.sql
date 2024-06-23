@@ -112,6 +112,7 @@ WHERE indicator_id = (SELECT id FROM indicators WHERE label = 'volume weighted a
   AND family_id = (SELECT id FROM families WHERE label_en = 'overlap studies');
 -- Volume Weighted Average Price (VWAP) + volume
 DELETE FROM indicators_families
+WHERE indicator_id = (SELECT id FROM indicators WHERE label = 'volume weighted average price')
   AND family_id = (SELECT id FROM families WHERE label_en = 'volume');
 
 COMMIT;

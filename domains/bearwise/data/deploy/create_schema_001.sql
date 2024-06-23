@@ -39,18 +39,8 @@ CREATE TABLE parameters (
     id SERIAL PRIMARY KEY,
     optional BOOLEAN NOT NULL,
     type_id INTEGER NOT NULL,
-    label_fr VARCHAR,
-    label_en VARCHAR NOT NULL,
-    label_es VARCHAR,
-    label_it VARCHAR,
-    label_nl VARCHAR,
-    label_de VARCHAR,
-    description_fr TEXT,
-    description_en TEXT NOT NULL,
-    description_es TEXT,
-    description_it TEXT,
-    description_nl TEXT,
-    description_de TEXT,
+    label VARCHAR NOT NULL,
+    description TEXT NOT NULL,
     default_value VARCHAR
 );
 
