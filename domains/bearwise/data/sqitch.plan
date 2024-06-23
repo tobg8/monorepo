@@ -7,3 +7,4 @@ insert_families_002 2024-06-22T20:19:37Z postgres <tobg@DESKTOP-B3PELI2> # inser
 insert_types_003 2024-06-23T18:22:30Z postgres <tobg@DESKTOP-B3PELI2> # add 3 types
 insert_indicators_004 2024-06-23T18:39:15Z postgres <tobg@DESKTOP-B3PELI2> # insert few indicators
 insert_indicators_families_005 2024-06-23T19:14:40Z postgres <tobg@DESKTOP-B3PELI2> # link indicators to families
+insert_intervals_006 2024-06-23T20:49:41Z postgres <tobg@DESKTOP-B3PELI2> # inserts intervals
